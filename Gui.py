@@ -1,7 +1,10 @@
 import PySimpleGUI as sg
 import time
 import subprocess
+<<<<<<< HEAD
 import shutil
+=======
+>>>>>>> 4393aa086582b78ad6ead17706e91d5252cdbd3e
 
 from Logger import Logger
 from Database import DB
@@ -75,7 +78,11 @@ if __name__ == "__main__":
         if wg.event == "Afsluiten":
             process = subprocess.Popen("florence")
             password = sg.PopupGetText("Geef wachtwoord om applicatie af te sluiten", "Vul wachtwoord in", location=(45,0))
+<<<<<<< HEAD
             if password == "vdeboekel":
+=======
+            if password == "your_password":
+>>>>>>> 4393aa086582b78ad6ead17706e91d5252cdbd3e
                 time.sleep(1)
                 process.terminate()
                 break
@@ -86,9 +93,14 @@ if __name__ == "__main__":
         if wg.event == "Opslaan":
             process = subprocess.Popen("florence")
             password = sg.PopupGetText("Geef wachtwoord om excel bestand op USB-stick op te slaan", "Vul wachtwoord in", location=(45,0))
+<<<<<<< HEAD
             if password == "vdeboekel":
                 shutil.rmtree("/home/pi/Desktop/Log", ignore_errors=True)
                 shutil.copytree("/home/pi/NFC_attendance_tracking/Log", "/home/pi/Desktop/Log")
+=======
+            if password == "your_password":
+                #Sla op
+>>>>>>> 4393aa086582b78ad6ead17706e91d5252cdbd3e
                 db.infoText("Excel bestand is opgeslagen op USB-stick")
                 time.sleep(1)
                 process.terminate()
