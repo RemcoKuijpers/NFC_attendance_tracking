@@ -30,3 +30,8 @@ If wou want to start the program on the bootup of the Raspberry Pi. You have to 
 ```
 /etc/xdg/autostart
 ```
+## Run the test
+To check if everything is installed correctly, and the path in the code are correct for your system. Run the following command:
+```
+sudo pyhton3 Gui.py
+```
