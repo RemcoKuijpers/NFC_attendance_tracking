@@ -20,6 +20,7 @@ In this chapter is explained which packages need to be installed.
 * [xlwt](https://pypi.org/project/xlwt/)
 * [xlrd](https://pypi.org/project/xlrd/)
 * [pyscard](https://pyscard.sourceforge.io/)
+* [LCD-show](https://github.com/goodtft/LCD-show)
 
 ## Installing
 To clone this repository to your system run the following command:
