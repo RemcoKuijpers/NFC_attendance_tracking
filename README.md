@@ -1,7 +1,7 @@
 # NFC_attendance_tracking
 Attendance tracking by using NFC tags and a NFC card reader with a Raspberry Pi. With this project it's possible to track the attendance of employees. The employees have to scan their NFC card with the NFC reader that's connected to the Raspberry Pi. The Raspberry Pi runs a Gui, on the Gui you can see the current time, the people that are present and some other information. There are three buttons on the Gui, one for registering new people, one for closing the Gui and one for saving the .xls (excel) log files to a usb stick.
 
-In this [README](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/README.md) is explained how to get the project up and running. If you want know more about how the project works, you can check out the wiki. (the wiki is still in the making)
+In this [README](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/README.md) is explained how to get the project up and running. If you want know more about how the project works, you can check out the [wiki](https://github.com/RemcoKuijpers/NFC_attendance_tracking/wiki). (the wiki is still in the making)
 
 ## Getting started
 In this chapter is explained how to get the project up and running.
