@@ -19,3 +19,9 @@ In this chapter is explained which packages need to be installed.
 * [xlwt](https://pypi.org/project/xlwt/)
 * [xlrd](https://pypi.org/project/xlrd/)
 * [pyscard](https://pyscard.sourceforge.io/)
+
+### Installing
+To clone this repository to your system run the following command:
+```
+git clone https://github.com/RemcoKuijpers/NFC_attendance_tracking.git
+```
