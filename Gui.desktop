@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=Gui         
+Comment=Gui app          
+NoDisplay=false
+Exec=/usr/bin/lxterminal -e /home/pi/NFC_attendance_tracking/Gui.sh
+NotShowIn=GNOME;KDE;XFCE;
