@@ -108,4 +108,3 @@ if __name__ == "__main__":
     time.sleep(1)
     Logger1.clockOut('04 5E 51 D2 30 4C 80')
     time.sleep(1)
-    print(Logger1.sheetIndex)
