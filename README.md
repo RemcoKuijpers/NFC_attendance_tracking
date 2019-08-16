@@ -21,6 +21,7 @@ In this chapter is explained which packages need to be installed.
 * [xlrd](https://pypi.org/project/xlrd/)
 * [pyscard](https://pyscard.sourceforge.io/)
 * [LCD-show](https://github.com/goodtft/LCD-show)
+* [florence](https://www.maketecheasier.com/setup-virtual-keyboard-linux/)
 
 ## Installing
 To clone this repository to your system run the following command:
