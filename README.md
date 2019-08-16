@@ -4,7 +4,7 @@ Attendance tracking by using NFC tags and a NFC card reader with a Raspberry Pi.
 In this [README](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/README.md) is explained how to get the project up and running. If you want know more about how the project works, you can check out the wiki. (the wiki is still in the making)
 
 ## Getting started
-In this chapter is explained how to get the project up and running
+In this chapter is explained how to get the project up and running.
 
 ### Hardware
 In this chapter is explained which hardware is used for this project.
@@ -14,7 +14,9 @@ In this chapter is explained which hardware is used for this project.
 * [NTAG213 NFC Cards](https://www.bol.com/nl/p/nfc-tag-ntag213-cards/9200000076793632/)
 
 ### Prerequisites
-In this chapter is explained which packages need to be installed.
+The project is tested with Raspian Buster on the Raspberry Pi 3B+.
+
+The following packages need to be installed to run the project:
 * [PySimpleGUI](https://pypi.org/project/PySimpleGUI/)
 * [sqlite3](https://docs.python.org/3/library/sqlite3.html)
 * [xlwt](https://pypi.org/project/xlwt/)
