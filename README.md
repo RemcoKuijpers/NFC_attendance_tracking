@@ -26,7 +26,7 @@ To clone this repository to your system run the following command:
 git clone https://github.com/RemcoKuijpers/NFC_attendance_tracking.git
 ```
 #### Running on boot up
-If wou want to start the program on the bootup of the Raspberry Pi. You have to add the [Gui.desktop](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Gui.desktop) to the following folder on your Raspberry Pi:
+If wou want to start the program on the bootup of the Raspberry Pi. You have to add the [Gui.desktop](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Gui.desktop) (you might have to change the folder in this file depending on your installation path) to the following folder on your Raspberry Pi:
 ```
 /etc/xdg/autostart
 ```
