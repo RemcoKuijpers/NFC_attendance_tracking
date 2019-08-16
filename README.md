@@ -36,6 +36,6 @@ To check if everything is installed correctly, and the path in the code are corr
 ```
 sudo pyhton3 Gui.py
 ```
-You should see the Gui popup.
+You should see the [Gui](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Gui_screenshot.png) popup.
 ## Gui screenshot
 ![Alt text](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Gui_screenshot.png)
