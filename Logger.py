@@ -4,6 +4,7 @@ from datetime import datetime, date
 from collections import defaultdict
 import time
 import sys
+import os.path
 
 from Database import DB
 
@@ -15,11 +16,18 @@ class Logger():
         print("Date is: "+str(self.today))
 
         self.todayString = date.today().strftime("%B %d, %Y")
-        self.db.insert('vars', 'todayString', self.todayString)
+        self.db.insert('vars', 'string', self.todayString)
+        self.db.insert('vars', 'today', str(self.today))
 
-        self.wb = xlwt.Workbook()
-        self.sheet = self.wb.add_sheet(self.today.strftime("%B %d, %Y"))
-        self.wb.save('Log/'+self.today.strftime("%B %d, %Y")+'.xls')
+        if os.path.exists('Log/'+self.today.strftime("%B %d, %Y")+'.xls') is False:
+            self.wb = xlwt.Workbook()
+            self.sheet = self.wb.add_sheet(self.today.strftime("%B %d, %Y"), cell_overwrite_ok=True)
+            self.sheet.write(0, 0, 'Naam')
+            self.sheet.write(0, 1, 'Id')
+            self.sheet.write(0, 2, 'Inkloktijd')
+            self.sheet.write(0, 3, 'Uitkloktijd')
+            self.sheet.write(0, 4, 'Gewerkte tijd')
+            self.wb.save('Log/'+self.today.strftime("%B %d, %Y")+'.xls')
 
         self.inTime = {}
         self.nums = {}
@@ -33,7 +41,9 @@ class Logger():
 
         if str(date.today()) != self.db.lookUpTime('today'):
             print("new day")
-            self.db.insert('vars', 'today', str(date.today))
+            print(str(date.today()))
+            self.db.insert('vars', 'today', str(self.today))
+            print(self.db.lookUpTime('today'))
             self.createNewFile()
 
 
@@ -58,7 +68,7 @@ class Logger():
 
         if str(date.today()) != self.db.lookUpTime('today'):
             print("new day")
-            self.db.insert('vars', 'today', str(date.today))
+            self.db.insert('vars', 'today', str(self.today))
             self.createNewFile()
 
         if name is not None:
@@ -73,14 +83,15 @@ class Logger():
         self.db.__del__()
 
     def createNewFile(self):
-        self.lastDay = self.db.lookUpTime('todayString')
+        print("ceating new file")
+        self.lastDay = self.db.lookUpTime('string')
         self.wb.save('Log/'+self.lastDay+'.xls')
         wbr = xlrd.open_workbook('Log/'+self.lastDay+'.xls')
         sheet = wbr.sheet_by_index(0)
         names = [sheet.cell_value(col, 0) for col in range(sheet.nrows)]
         ids = [sheet.cell_value(col, 1) for col in range(sheet.nrows)]
         self.today = date.today()
-        self.db.insert('vars', 'today', self.today)
+        self.db.insert('vars', 'today', str(self.today))
         self.num = 1
         self.wb = xlwt.Workbook()
         self.sheet = self.wb.add_sheet(self.today.strftime("%B %d, %Y"), cell_overwrite_ok=True)
@@ -108,4 +119,3 @@ if __name__ == "__main__":
     time.sleep(1)
     Logger1.clockOut('04 5E 51 D2 30 4C 80')
     time.sleep(1)
-    print(Logger1.sheetIndex)
