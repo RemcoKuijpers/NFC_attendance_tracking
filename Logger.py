@@ -118,4 +118,8 @@ if __name__ == "__main__":
     Logger1.clockOut('04 34 77 CA 30 4C 80')
     time.sleep(1)
     Logger1.clockOut('04 5E 51 D2 30 4C 80')
+<<<<<<< HEAD
     time.sleep(1)
+=======
+    time.sleep(1)
+>>>>>>> 85482d746dc4b4f08f6dbbbba5ee8cde4688fba1
