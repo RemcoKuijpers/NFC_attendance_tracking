@@ -42,4 +42,4 @@ sudo pyhton3 Gui.py
 ```
 You should see the [Gui](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Gui_screenshot.png) popup.
 ## Gui screenshot
-![Alt text](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Gui_screenshot.png)
+![Alt text](https://github.com/RemcoKuijpers/NFC_attendance_tracking/blob/master/Images/Gui_screenshot.png)
