@@ -3,6 +3,7 @@ import time
 import subprocess
 import shutil
 import os
+import sys
 
 from Logger import Logger
 from Database import DB
@@ -24,7 +25,7 @@ class WebGui():
         layout = [
                     [sg.Text("Actuele tijd", size=(200, 1), font= "Courier 65", key="tijd")],
                     [sg.Frame("Aanwezigen", frame1_layout), sg.Frame("Info", frame2_layout)],
-                    [sg.Button("Nieuwe gebruiker aanmelden", enable_events=True, size=(33,1)), sg.Button("Afsluiten", enable_events=True, size=(7,1)), sg.Button("Opslaan", enable_events=True, size=(7,1))]
+                    [sg.Button("Nieuwe gebruiker aanmelden", enable_events=True, size=(22,1)), sg.Button("Tijd instellen", enable_events=True, size=(7,1)), sg.Button("Afsluiten", enable_events=True, size=(7,1)), sg.Button("Opslaan", enable_events=True, size=(7,1))]
                 ]
 
         self.window = sg.Window('Kloksysteem GUI', layout=layout, location=(0,0), size=(480,320), resizable=True, no_titlebar=False).Finalize()
@@ -105,11 +106,13 @@ if __name__ == "__main__":
             if password == "vdeboekel":
                 usb = os.popen('ls /media/pi').read()
                 usb = usb.rstrip()
-                shutil.rmtree("/home/pi/"+usb+"/Log", ignore_errors=True)
+                print(usb)
+                #shutil.rmtree("/media/pi/"+usb+"/Log", ignore_errors=True)
                 if usb is None or usb == "":
                     db.infoText("Geen usb stick gedetecteerd")
                 else:
                     if os.path.exists("/media/pi/"+usb+"/Log"):
+                        print("Path already exists")
                         shutil.rmtree("/media/pi/"+usb+"/Log")
                     shutil.copytree("/home/pi/NFC_attendance_tracking/Log", ("/media/pi/"+usb+"/Log"))
                     db.infoText("Excel bestand is opgeslagen op USB-stick")
@@ -119,6 +122,17 @@ if __name__ == "__main__":
                 db.infoText("Onjuist wachtwoord ingevoerd")
                 time.sleep(1)
                 process.terminate()
+        
+        if wg.event == "Tijd instellen":
+            process = subprocess.Popen("florence")
+            year = sg.PopupGetText("Vul het jaar in (4 cijfers)", "Jaar", location=(45,0))
+            month = sg.PopupGetText("Vul de maand in (cijfers)", "Maand", location=(45,0))
+            day = sg.PopupGetText("Vul de dag in (cijfers)", "Dag", location=(45,0))
+            hour = sg.PopupGetText("Vul het uur in (0 tot 24)", "Uur", location=(45,0))
+            minute = sg.PopupGetText("Vul de minuten in (0 tot 60)", "Minuut", location=(45,0))
+            command = "sudo date -s '%s-%s-%s %s:%s:00'"%(year, month, day, hour, minute)
+            os.system(command)
+            process.terminate()
 
         actId = r.getUID()
         if actId is not None and wg.event != "Nieuwe gebruiker aanmelden":

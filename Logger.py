@@ -48,13 +48,28 @@ class Logger():
 
 
         if name is not None:
-            self.sheet.write(self.num, 0, name)
-            self.sheet.write(self.num, 1, id)
-            self.inTime[id] = datetime.now()
-            self.nums[id] = self.num
-            self.sheet.write(self.num, 2, self.inTime[id].strftime("%d/%m/%Y %H:%M:%S"))
+            try:
+                self.sheet.write(self.num, 0, name)
+                self.sheet.write(self.num, 1, id)
+                self.inTime[id] = datetime.now()
+                self.nums[id] = self.num
+                self.sheet.write(self.num, 2, self.inTime[id].strftime("%d/%m/%Y %H:%M:%S"))
+                self.wb.save('Log/'+self.today.strftime("%B %d, %Y")+'.xls')
+            except AttributeError:
+                self.wb = xlwt.Workbook()
+                self.sheet = self.wb.add_sheet(self.today.strftime("%B %d, %Y"), cell_overwrite_ok=True)
+                self.sheet.write(0, 0, 'Naam')
+                self.sheet.write(0, 1, 'Id')
+                self.sheet.write(0, 2, 'Inkloktijd')
+                self.sheet.write(0, 3, 'Uitkloktijd')
+                self.sheet.write(0, 4, 'Gewerkte tijd')
+                self.sheet.write(self.num, 0, name)
+                self.sheet.write(self.num, 1, id)
+                self.inTime[id] = datetime.now()
+                self.nums[id] = self.num
+                self.sheet.write(self.num, 2, self.inTime[id].strftime("%d/%m/%Y %H:%M:%S"))
+                self.wb.save('Log/'+self.today.strftime("%B %d, %Y")+'.xls')
 
-            self.wb.save('Log/'+self.today.strftime("%B %d, %Y")+'.xls')
 
             self.db.insert('present', id, name)
             self.db.infoText(name + ' is succesvol ingeklokt')
