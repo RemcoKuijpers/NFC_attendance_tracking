@@ -91,7 +91,7 @@ if __name__ == "__main__":
         if wg.event == "Afsluiten":
             process = subprocess.Popen("florence")
             password = sg.PopupGetText("Geef wachtwoord om applicatie af te sluiten", "Vul wachtwoord in", location=(45,0))
-            if password == "vdeboekel":
+            if password == "yourpassword":
                 time.sleep(1)
                 process.terminate()
                 break
@@ -103,7 +103,7 @@ if __name__ == "__main__":
         if wg.event == "Opslaan":
             process = subprocess.Popen("florence")
             password = sg.PopupGetText("Geef wachtwoord om excel bestand op USB-stick op te slaan", "Vul wachtwoord in", location=(45,0))
-            if password == "vdeboekel":
+            if password == "yourpassword":
                 usb = os.popen('ls /media/pi').read()
                 usb = usb.rstrip()
                 print(usb)

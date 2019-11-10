@@ -123,6 +123,7 @@ class Logger():
         self.sheet.write(0, 4, 'Gewerkte tijd')
         self.wb.save('Log/'+self.today.strftime("%B %d, %Y")+'.xls')
 
+# Test program
 if __name__ == "__main__":
     Logger1 = Logger()
     print("Start Logging ...")
